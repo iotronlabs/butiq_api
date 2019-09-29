@@ -26,3 +26,4 @@ Route::get('login/{providers}', 'Api\AuthController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Api\AuthController@handleProviderCallback');
 
 Route::resource('categories', 'Api\Categories\CategoryController');
+Route::resource('products', 'Api\Products\ProductController');
