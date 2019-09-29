@@ -528,6 +528,7 @@ class ComposerStaticInit858706d9d7263329ed087435a63fa5c8
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Resources\\CategoryResource' => __DIR__ . '/../..' . '/app/Http/Resources/CategoryResource.php',
         'App\\Http\\Resources\\ProductIndexResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductIndexResource.php',
+        'App\\Http\\Resources\\ProductResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductResource.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\Traits\\HasChildren' => __DIR__ . '/../..' . '/app/Models/Traits/HasChildren.php',

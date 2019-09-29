@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use App\Models\Traits\HasChildren;
 use App\Models\Traits\IsOrderable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
 
 class Category extends Model
 {   
@@ -22,5 +22,11 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id', 'id'); 
     }
+    public function product()
+    {
+        return $this->belongsToMany(Product::class);
+        
+    }
+
 
 }
