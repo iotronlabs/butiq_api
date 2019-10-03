@@ -513,6 +513,7 @@ class ComposerStaticInit858706d9d7263329ed087435a63fa5c8
     );
 
     public static $classMap = array (
+        'App\\Cart\\Money' => __DIR__ . '/../..' . '/app/Cart/Money.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
@@ -536,12 +537,15 @@ class ComposerStaticInit858706d9d7263329ed087435a63fa5c8
         'App\\Http\\Resources\\ProductIndexResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductIndexResource.php',
         'App\\Http\\Resources\\ProductResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductResource.php',
         'App\\Http\\Resources\\ProductVariationResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductVariationResource.php',
+        'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\ProductVariation' => __DIR__ . '/../..' . '/app/Models/ProductVariation.php',
         'App\\Models\\ProductVariationType' => __DIR__ . '/../..' . '/app/Models/ProductVariationType.php',
+        'App\\Models\\Seller' => __DIR__ . '/../..' . '/app/Models/Seller.php',
         'App\\Models\\Traits\\CanBeScoped' => __DIR__ . '/../..' . '/app/Models/Traits/canBeScoped.php',
         'App\\Models\\Traits\\HasChildren' => __DIR__ . '/../..' . '/app/Models/Traits/HasChildren.php',
+        'App\\Models\\Traits\\HasPrice' => __DIR__ . '/../..' . '/app/Models/Traits/HasPrice.php',
         'App\\Models\\Traits\\IsOrderable' => __DIR__ . '/../..' . '/app/Models/Traits/isOrderable.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

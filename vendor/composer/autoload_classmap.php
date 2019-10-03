@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Cart\\Money' => $baseDir . '/app/Cart/Money.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Api\\AuthController' => $baseDir . '/app/Http/Controllers/Api/AuthController.php',
@@ -29,12 +30,15 @@ return array(
     'App\\Http\\Resources\\ProductIndexResource' => $baseDir . '/app/Http/Resources/ProductIndexResource.php',
     'App\\Http\\Resources\\ProductResource' => $baseDir . '/app/Http/Resources/ProductResource.php',
     'App\\Http\\Resources\\ProductVariationResource' => $baseDir . '/app/Http/Resources/ProductVariationResource.php',
+    'App\\Models\\Admin' => $baseDir . '/app/Models/Admin.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
     'App\\Models\\ProductVariation' => $baseDir . '/app/Models/ProductVariation.php',
     'App\\Models\\ProductVariationType' => $baseDir . '/app/Models/ProductVariationType.php',
+    'App\\Models\\Seller' => $baseDir . '/app/Models/Seller.php',
     'App\\Models\\Traits\\CanBeScoped' => $baseDir . '/app/Models/Traits/canBeScoped.php',
     'App\\Models\\Traits\\HasChildren' => $baseDir . '/app/Models/Traits/HasChildren.php',
+    'App\\Models\\Traits\\HasPrice' => $baseDir . '/app/Models/Traits/HasPrice.php',
     'App\\Models\\Traits\\IsOrderable' => $baseDir . '/app/Models/Traits/isOrderable.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

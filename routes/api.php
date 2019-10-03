@@ -18,6 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/user/admin/register', 'Api\Admin\AdminAuthController@register');
+Route::post('/user/admin/login', 'Api\Admin\AdminAuthController@login');
+Route::get('/user/admin/me', 'Api\Admin\AdminAuthController@mepoint');
+Route::post('/user/admin/logout', 'Api\Admin\AdminAuthController@out');
+
+Route::post('/user/seller/register', 'Api\Seller\SellerAuthController@register');
+Route::post('/user/seller/login', 'Api\Seller\SellerAuthController@login');
+Route::get('/user/seller/me', 'Api\Seller\SellerAuthController@mepoint');
+Route::post('/user/seller/logout', 'Api\Seller\SellerAuthController@out');
+
 
 Route::post('/register', 'Api\AuthController@register');
 Route::post('/login', 'Api\AuthController@login');

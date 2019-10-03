@@ -46,6 +46,28 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
+
+        'seller-api' => [
+            'driver' => 'passport',
+            'provider' => 'sellers',
+            'hash' => false,
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'admin-api' => [
+            'driver' => 'passport',
+            'provider' => 'admins',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +91,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Seller::class,
         ],
 
         // 'users' => [
