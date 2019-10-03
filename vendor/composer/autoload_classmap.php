@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Resources\\ProductIndexResource' => $baseDir . '/app/Http/Resources/ProductIndexResource.php',
     'App\\Http\\Resources\\ProductResource' => $baseDir . '/app/Http/Resources/ProductResource.php',
     'App\\Http\\Resources\\ProductVariationResource' => $baseDir . '/app/Http/Resources/ProductVariationResource.php',
+    'App\\Models\\Admin' => $baseDir . '/app/Models/Admin.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',

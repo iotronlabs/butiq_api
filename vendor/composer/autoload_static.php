@@ -550,6 +550,7 @@ class ComposerStaticInit858706d9d7263329ed087435a63fa5c8
         'App\\Http\\Resources\\ProductIndexResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductIndexResource.php',
         'App\\Http\\Resources\\ProductResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductResource.php',
         'App\\Http\\Resources\\ProductVariationResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductVariationResource.php',
+        'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
