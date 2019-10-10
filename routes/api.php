@@ -3,7 +3,7 @@
 use App\Models\Category;
 use Illuminate\Http\Request;
 
- 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -37,3 +39,7 @@ Route::get('login/{provider}/callback', 'Api\AuthController@handleProviderCallba
 
 Route::resource('categories', 'Api\Categories\CategoryController');
 Route::resource('products', 'Api\Products\ProductController');
+
+Route::post('/otpverify', 'Api\Verify\OTPVerifyController@create');
+Route::post('/otpvalidate', 'Api\Verify\OTPVerifyController@check_validation');
+Route::post('deleteotp', 'Api\Verify\OTPVerifyController@destroy');

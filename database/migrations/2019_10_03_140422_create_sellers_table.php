@@ -22,7 +22,7 @@ class CreateSellersTable extends Migration
             $table->string('location_address')->nullable();
             $table->string('location_city')->nullable();
             $table->string('location_state')->nullable();
-            $table->intiger('location_pin');
+            $table->integer('location_pin');
             $table->string('profile-img')->nullable();
             $table->timestamps();
         });
