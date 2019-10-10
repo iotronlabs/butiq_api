@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Traits\HasPrice;
 use App\Models\ProductVariation;
 use App\Models\Traits\canBeScoped;
+use App\Models\ProductVariationType;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -37,5 +38,10 @@ class Product extends Model
     public function variations()
     {
         return $this->hasMany(ProductVariation::class)->orderBy('order','asc');
+    }
+
+    public function variationTypes()
+    {
+        return $this->hasMany(ProductVariationType::class);
     }
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api\Products;
 
 use App\Models\Product;
 
+use App\Scoping\Scopes\SizeScopes;
+use App\Scoping\Scopes\ColorScopes;
+use App\Scoping\Scopes\PriceScopes;
 use App\Http\Controllers\Controller;
 use App\Scoping\Scopes\CategoryScopes;
 use App\Http\Resources\ProductResource;
@@ -30,7 +33,11 @@ class ProductController extends Controller
     {
         return [
             
-            'category' => new CategoryScopes()
+            'category' => new CategoryScopes(),
+            'price' => new PriceScopes(),
+            'color' => new ColorScopes(),
+            'size' => new SizeScopes()
+
         ];
     }
 }

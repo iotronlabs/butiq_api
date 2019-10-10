@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 class OTPVerifyController extends Controller
 {
     use RegistersUsers;
+    
 
     public function __construct()
     {
@@ -21,12 +22,12 @@ class OTPVerifyController extends Controller
 
     protected function create(Request $request)
     {   
+        $fourdigit = mt_rand(1000,9999); 
         //dd($request->email);
         $user = OTPVerify::create([
             'temp_email' => $request->email,
-            'token_email' => '1720',
+            'token_email' => $fourdigit,
         ]);
-
 
         Mail::to($user->temp_email)->send(new VerifyMail($user));
               
