@@ -40,6 +40,8 @@ Route::get('login/{provider}/callback', 'Api\AuthController@handleProviderCallba
 Route::resource('categories', 'Api\Categories\CategoryController');
 Route::resource('products', 'Api\Products\ProductController');
 
+Route::post('categories/add','Api\Categories\CategoryController@create');
+
 Route::post('/otpverify', 'Api\Verify\OTPVerifyController@create');
 Route::post('/otpvalidate', 'Api\Verify\OTPVerifyController@check_validation');
 Route::post('deleteotp', 'Api\Verify\OTPVerifyController@destroy');
