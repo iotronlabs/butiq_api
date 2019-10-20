@@ -11,7 +11,8 @@ use App\Models\ProductVariationType;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
-{   
+{       
+    protected $guarded = [];
     use canBeScoped,HasPrice;
     public function getRouteKeyName()
     {

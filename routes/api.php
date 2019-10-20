@@ -45,3 +45,17 @@ Route::post('categories/add','Api\Categories\CategoryController@create');
 Route::post('/otpverify', 'Api\Verify\OTPVerifyController@create');
 Route::post('/otpvalidate', 'Api\Verify\OTPVerifyController@check_validation');
 Route::post('deleteotp', 'Api\Verify\OTPVerifyController@destroy');
+
+
+
+
+Route::group(
+    [
+        'prefix' => '/products',
+    ],
+    function () {
+        Route::post('/addProducts', 'Api\Products\ProductController@addProduct');
+        Route::post('/variation/{id}', 'Api\Products\ProductController@addProductVariations');
+    }
+
+);

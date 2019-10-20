@@ -11,8 +11,8 @@ use App\Models\ProductVariationType;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductVariation extends Model
-{
-    
+{   
+    protected $guarded = [];    
     use  HasPrice;
     public function getPriceAttribute($value)
     {   
