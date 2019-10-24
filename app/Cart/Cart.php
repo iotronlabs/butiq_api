@@ -3,9 +3,11 @@
 namespace App\Cart;
 
 use App\User;
+use App\Cart\Money;
 
 class Cart 
-{   
+{       
+    protected $changed = false; 
     protected $user;
     public function __construct(User $user)
     {
@@ -26,6 +28,59 @@ class Cart
         ]);
     }
 
+
+    public function delete($productId)
+    {
+        $this->user->cart()->detach($productId);
+    }
+
+
+    public function empty()
+    {
+        $this->user->cart()->detach();
+    }
+
+    public function isEmpty()
+    {
+        return $this->user->cart->sum('pivot.quantity') ===0;
+
+    }
+
+    public function subtotal()
+    {
+        $subtotal =  $this->user->cart->sum(function($product){
+            return $product->price->amount()   * $product->pivot->quantity;
+
+        });
+        return new Money($subtotal);
+    }
+
+    public function total()
+    {
+        return $this->subtotal();
+    }
+
+    public function sync()
+    {   
+        return;
+        $this->user->cart->each(function($product){
+            $quantity = $product->minStock($product->pivot->quantity);
+          //  dd($quantity);
+
+
+          $this->changed = $quantity != $product->pivot->quantity;
+            $product->pivot->update([
+                'quantity' => $quantity
+            ]);
+
+        });
+    }
+
+    public function hasChanged(){
+        return $this->changed;
+
+    }
+
     protected function getStorePayload($products)
     {
         return collect($products)->keyBy('id')->map(function ($product) {
@@ -44,6 +99,8 @@ class Cart
 
         return 0;
     }
+
+
 
 
 }

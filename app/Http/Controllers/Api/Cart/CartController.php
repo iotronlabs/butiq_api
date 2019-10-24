@@ -6,10 +6,13 @@ namespace App\Http\Controllers\Api\Cart;
 // use App\Cart\Cart;
 
 use App\Cart\Cart;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Cart\CartStoreRequest;
+use Illuminate\Http\Request;
 use App\Models\ProductVariation;
-use Zend\Diactoros\Request;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Cart\CartUpdateRequest;
+use App\Http\Requests\Cart\CartStoreRequest;
+use App\Http\Resources\Cart\CartResource;
 
 class CartController extends Controller
 {       
@@ -18,15 +21,49 @@ class CartController extends Controller
     {   
         $this->middleware(['auth:api']);  
     }
+
+    public function index(Request $request, Cart $cart)
+    {       
+        $cart->sync();
+        $request->user('api')->load(['cart.product', 'cart.product.variations.stock', 'cart.stock', 'cart.type'
+
+        
+        ]);
+
+        return (new CartResource($request->user('api')))
+                    ->additional([
+                        'meta' =>$this->meta($cart)
+
+                    ]);
+    }
+
+    protected function meta(Cart $cart)
+    {
+        return [
+            'empty' => $cart->IsEmpty(),
+            'subtotal' => $cart->subtotal()->formatted(),
+            'total' => $cart->total()->formatted(),
+            'changed' => $cart->hasChanged(),
+        ]; 
+    }
     
     public function store(CartStoreRequest $request, Cart $cart)
     {
         $cart->add($request->products);
+
+        $cart->sync();
     }
 
-    public function update(ProductVariation  $productVariation, Request $request, Cart $cart)
+    public function update(ProductVariation  $productVariation, CartUpdateRequest $request, Cart $cart)
     {
         $cart->update($productVariation->id, $request->quantity);
     }
+
+    public function destroy (ProductVariation  $productVariation,  Cart $cart)
+    {
+        $cart->delete($productVariation->id);
+    }
+
+    
     
 }
