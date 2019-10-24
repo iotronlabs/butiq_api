@@ -5,11 +5,11 @@
 </head>
 
 <body>
-<h2>Welcome to the site butique</h2>
+<h2>Welcome to the butiq platform</h2>
 <br/>
-Your registered email-id is {{$user['temp_email']}} , Please click on the below link to verify your email account
+Your registered email-id is {{$user['temp_email']}},
 <br/>
-<p> Your ONE-Time-Password is - {{$user['token_email']</p>
+<p> Your ONE-TIME-PASSWORD is - {{$user['token_email']}}</p>
 </body>
 
 </html>

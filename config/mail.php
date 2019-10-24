@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'no-reply@butiq.co.in'),
-        'name' => env('MAIL_FROM_NAME', 'Butiq'),
+        'name' => env('MAIL_FROM_NAME', 'butiq'),
     ],
 
     /*
