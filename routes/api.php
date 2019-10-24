@@ -20,6 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix' => 'auth'], function () {
+    
+        Route::post('/register', 'Api\AuthController@register');
+        Route::post('/login',  'Api\AuthController@login');
+        Route::get('/me',      'Api\AuthController@action');
+
+    
+});
+
 Route::post('/user/admin/register', 'Api\Admin\AdminAuthController@register');
 Route::post('/user/admin/login', 'Api\Admin\AdminAuthController@login');
 Route::get('/user/admin/me', 'Api\Admin\AdminAuthController@mepoint');
@@ -39,6 +48,13 @@ Route::get('login/{provider}/callback', 'Api\AuthController@handleProviderCallba
 
 Route::resource('categories', 'Api\Categories\CategoryController');
 Route::resource('products', 'Api\Products\ProductController');
+Route::resource('cart', 'Api\Cart\CartController',[
+    'parameters' => [
+        'cart' =>'productVariation'
+    ]
+]);
+
+    
 
 Route::post('categories/add','Api\Categories\CategoryController@create');
 
@@ -59,3 +75,5 @@ Route::group(
     }
 
 );
+
+

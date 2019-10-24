@@ -39,13 +39,17 @@ class AuthController extends Controller
 
         if(!auth()->attempt($validatedData))
         {
-            return "InValid";
+            return "Invalid";
 
         }
 
         $accessToken = auth()->user()->createToken("authToken")->accessToken;
 
-        return response(['user' => auth()->user(), 'accessToken' => $accessToken], 200);
+        return response([
+                        'data' => auth()->user(),
+                        'meta' => [
+                            'token' => $accessToken
+                        ] ] , 200);
 
         
   }
@@ -61,5 +65,25 @@ class AuthController extends Controller
         $user = Socialite::driver($provider)->stateless()->user();
 
          return response([$user->token,$user->name,$user->email]);
+    }
+
+
+     public function action()
+    {
+        return response()->json([
+            'data' =>auth('api')->user(),      
+        ]);
+     
+    }
+
+    public function out()
+    {
+       
+            auth('api')->user()->token()->revoke();
+
+            return response()->json([
+                'success' => true,
+            ]);
+  
     }
 }

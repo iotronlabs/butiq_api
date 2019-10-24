@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\ProductVariation;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -32,4 +33,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cart()
+    {
+            return $this->belongsToMany(ProductVariation::class, 'cart_user')
+            ->withPivot('quantity')
+            ->withTimestamps();
+            
+    }
 }
