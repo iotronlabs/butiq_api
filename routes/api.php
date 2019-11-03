@@ -27,8 +27,6 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('/me',      'Api\AuthController@action');
         Route::get('/logout',      'Api\AuthController@out');
 
-
-    
 });
 
 Route::post('/user/admin/register', 'Api\Admin\AdminAuthController@register');
@@ -77,5 +75,9 @@ Route::group(
     }
 
 );
+
+
+Route::resource('addresses', 'Api\Addresses\AddressController');
+
 
 

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Address;
 use App\Models\ProductVariation;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,10 @@ class User extends Authenticatable
             ->withPivot('quantity')
             ->withTimestamps();
             
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
     }
 }
