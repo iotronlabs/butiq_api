@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Passport\HasApiTokens;
 
 class AuthController extends Controller
 {
+    use HasApiTokens;
   public function register(Request $request)
   {
         $validatedData = $request->validate([
@@ -22,7 +25,7 @@ class AuthController extends Controller
 
         $user = User::create($validatedData);
 
-        $accessToken = $user->createToken("authToken")->accessToken; 
+        $accessToken = $user->createToken("authToken")->accessToken;
 
         return response(['user' => $user, 'accessToken' => $accessToken], 200);
 
@@ -32,7 +35,7 @@ class AuthController extends Controller
 
   {
         $validatedData = $request->validate([
-            
+
             'email' => 'required|email',
             'password' => 'required',
         ]);
@@ -51,7 +54,7 @@ class AuthController extends Controller
                             'token' => $accessToken
                         ] ] , 200);
 
-        
+
   }
 
     public function redirectToProvider($providers)
@@ -59,7 +62,7 @@ class AuthController extends Controller
         return Socialite::driver($providers)->stateless()->redirect();
     }
 
-   
+
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->stateless()->user();
@@ -71,19 +74,19 @@ class AuthController extends Controller
      public function action()
     {
         return response()->json([
-            'data' =>auth('api')->user(),      
+            'data' =>auth('api')->user(),
         ]);
-     
+
     }
 
     public function out()
     {
-       
+
             auth('api')->user()->token()->revoke();
 
             return response()->json([
                 'success' => true,
             ]);
-  
+
     }
 }
