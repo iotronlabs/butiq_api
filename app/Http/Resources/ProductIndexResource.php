@@ -25,6 +25,11 @@ class ProductIndexResource extends JsonResource
         'in_stock' => $this->inStock(),
         'seller_name' => $this->seller_name,
         'color' => $this->color,
+        'image_1' => $this->image_1,
+        'image_2' => $this->image_2,
+        'image_3' => $this->image_3,
+        'image_4' => $this->image_4,
+        'image_5' => $this->image_5,
 
         ];
     }
