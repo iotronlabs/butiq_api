@@ -33,13 +33,13 @@ return [
     'facebook' => [
         'client_id' => '2442813762714926',
         'client_secret' => 'b1b608bf28ef43f441dd8df9af356cff',
-        'redirect' => 'http://localhost:8000/api/login/facebook/callback',
+        'redirect' => 'https://api.butiq.co.in/public/api/login/facebook/callback',
     ],
 
     'google' => [
         'client_id' => '65499674864-bmdbllh9f7315ne72vnbd2cdts1ov2is.apps.googleusercontent.com',
         'client_secret' => 'CrTLF7myE_p89XK07PijiLP2',
-        'redirect' => 'http://localhost:8000/api/login/google/callback',
+        'redirect' => 'https://api.butiq.co.in/public/api/login/google/callback',
     ],
 
     

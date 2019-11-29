@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.hostinger.in'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@butiq.co.in'),
+        'address' => env('MAIL_FROM_ADDRESS', 'mail@butiq.co.in'),
         'name' => env('MAIL_FROM_NAME', 'butiq'),
     ],
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Addresses;
 
-use App\Models\Address;
+use App\Models\State;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AddressResource;

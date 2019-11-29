@@ -78,6 +78,7 @@ Route::group(
 
 
 Route::resource('addresses', 'Api\Addresses\AddressController');
+Route::resource('states', 'Api\State\StateController');
 
 
 

@@ -27,11 +27,16 @@ class OTPVerifyController extends Controller
         $user = OTPVerify::create([
             'temp_email' => $request->email,
             'token_email' => $fourdigit,
+           
         ]);
 
         Mail::to($user->temp_email)->send(new VerifyMail($user));
               
-        return $user;
+         return response()->json([
+                'success' => true,
+                'message' => 'OTP sent Successfully'
+               
+            ], 200);
     }
 
     protected function check_Validation(Request $request)
@@ -48,14 +53,14 @@ class OTPVerifyController extends Controller
                         
             return response()->json([
                 'success' => true,
-                'message' => 'Your OTP verified Successfully and updated'
+                'message' => 'OTP verified Successfully'
                
             ], 200);
         }else{
               
             return response()->json([
                 'success'=> false,
-                'message' => 'Your OTP  is incorrect '
+                'message' => 'OTP  is incorrect '
             ]);
         }
        
