@@ -32,17 +32,17 @@ class CartController extends Controller
 
         return (new CartResource($request->user('api')))
                     ->additional([
-                        'meta' =>$this->meta($cart)
+                        'meta' =>$this->meta($cart,$request)
 
                     ]);
     }
 
-    protected function meta(Cart $cart)
+    protected function meta(Cart $cart, Request $request)
     {
         return [
             'empty' => $cart->IsEmpty(),
             'subtotal' => $cart->subtotal()->formatted(),
-            'total' => $cart->total()->formatted(),
+            'total' => $cart->withShipping($request->shipping_method_id)->total()->formatted(),
             'changed' => $cart->hasChanged(),
         ]; 
     }
