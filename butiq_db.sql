@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2019 at 12:14 PM
+-- Generation Time: Dec 07, 2019 at 01:16 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -47,10 +47,10 @@ CREATE TABLE `addresses` (
 
 INSERT INTO `addresses` (`id`, `user_id`, `state_id`, `name`, `address_1`, `city`, `postal_code`, `created_at`, `updated_at`, `default`) VALUES
 (1, 3, 2, 'ahksnk', 'kaghnln', 'jhhagmb ', 'nbmbmn', NULL, '2019-11-03 05:42:12', 0),
-(3, 3, 1, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:00:22', '2019-11-03 05:42:12', 0),
-(5, 3, 1, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:40:22', '2019-11-03 05:42:12', 0),
+(3, 3, 3, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:00:22', '2019-11-03 05:42:12', 0),
+(5, 2, 1, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:40:22', '2019-11-03 05:42:12', 0),
 (6, 3, 1, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:41:11', '2019-11-03 05:42:12', 0),
-(7, 3, 1, 'agmg', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:41:33', '2019-11-03 05:42:12', 0),
+(7, 3, 4, 'agmg', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:41:33', '2019-11-03 05:42:12', 0),
 (8, 3, 1, 'anb hb', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:42:12', '2019-11-03 05:42:12', 1);
 
 -- --------------------------------------------------------
@@ -90,7 +90,7 @@ CREATE TABLE `cart_user` (
 --
 
 INSERT INTO `cart_user` (`id`, `user_id`, `product_variation_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 2, NULL, NULL),
+(1, 2, 1, 2, NULL, NULL),
 (2, 1, 6, 10, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -197,7 +197,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2019_10_23_142009_create_cart_user_table', 7),
 (26, '2019_11_03_092511_create_states_table', 8),
 (27, '2019_11_03_094523_create_addresses_table', 9),
-(28, '2019_11_03_105719_add_default_to_addresses_table', 10);
+(28, '2019_11_03_105719_add_default_to_addresses_table', 10),
+(29, '2019_11_09_151328_add_images_to_products_table', 11),
+(30, '2019_11_09_151827_add_images_to_products_variations_table', 11),
+(31, '2019_12_02_172452_create_shipping_methods_table', 11),
+(32, '2019_12_02_173629_create_state_shipping_method_table', 12),
+(33, '2019_12_02_185506_create_state_shipping_method_table', 13),
+(34, '2019_12_02_185635_create_shipping_method_state_table', 14);
 
 -- --------------------------------------------------------
 
@@ -223,7 +229,12 @@ CREATE TABLE `oauth_access_tokens` (
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('18026470d7530429236382bc0acc7459586588871feeabc71961f214400ea89e0dbb3a4424121e83', 3, 1, 'authToken', '[]', 0, '2019-11-03 04:41:58', '2019-11-03 04:41:58', '2020-11-03 10:11:58'),
-('9f41e381459736e6c1fce91e25c13312beaa12a7dd1ac8f66ca5ece151d8a9f22c1559552741e07b', 3, 1, 'authToken', '[]', 0, '2019-11-03 04:41:39', '2019-11-03 04:41:39', '2020-11-03 10:11:39');
+('320aea776222bb2a0c5177d18df049f784e54f31e2df0a226e50f8452b5e91eea33bee96fa82ec97', 2, 1, 'authToken', '[]', 0, '2019-12-06 23:51:21', '2019-12-06 23:51:21', '2020-12-07 05:21:21'),
+('7809ea3f98c8019ea1ef2dfac41409190a1728080522cf7a6aba9a3e7d7befe97599361fb2185d03', 4, 1, 'authToken', '[]', 0, '2019-11-08 08:58:24', '2019-11-08 08:58:24', '2020-11-08 14:28:24'),
+('9f41e381459736e6c1fce91e25c13312beaa12a7dd1ac8f66ca5ece151d8a9f22c1559552741e07b', 3, 1, 'authToken', '[]', 0, '2019-11-03 04:41:39', '2019-11-03 04:41:39', '2020-11-03 10:11:39'),
+('bebdd795c45d55d19a9ed19ce5fa1415160f725fd16cf1ec3aed9486a9c7e5b59b9cd002ca5c26af', 3, 1, 'authToken', '[]', 0, '2019-12-03 09:12:38', '2019-12-03 09:12:38', '2020-12-03 14:42:38'),
+('e787ff3007c7a7eccb846eb4db302b42e86b384124c36e3dc63ecfd19f988b0e3957041edf83bc9d', 4, 1, 'authToken', '[]', 0, '2019-11-08 09:50:25', '2019-11-08 09:50:25', '2020-11-08 15:20:25'),
+('feae0f53f4efbb17cf756e983d8defcb324990c3adb70a214e9ddbceae0f4d29f1c9987b04b78189', 2, 1, 'authToken', '[]', 0, '2019-12-03 09:11:52', '2019-12-03 09:11:52', '2020-12-03 14:41:52');
 
 -- --------------------------------------------------------
 
@@ -372,16 +383,21 @@ CREATE TABLE `products` (
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `popularity` int(11) NOT NULL DEFAULT 0,
   `seller_id` int(11) DEFAULT NULL,
-  `color` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `color` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_4` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_5` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `slug`, `price`, `created_at`, `updated_at`, `description`, `popularity`, `seller_id`, `color`) VALUES
-(1, 'coffee', 'coffee', 1200, NULL, NULL, 'New Latest Shirt at lowest price', 0, NULL, NULL),
-(2, 'Rounded Next T-Shirt', 'rounded-neck', 1900, NULL, NULL, NULL, 0, NULL, NULL);
+INSERT INTO `products` (`id`, `name`, `slug`, `price`, `created_at`, `updated_at`, `description`, `popularity`, `seller_id`, `color`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`) VALUES
+(1, 'coffee', 'coffee', 1200, NULL, NULL, 'New Latest Shirt at lowest price', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Rounded Next T-Shirt', 'rounded-neck', 1900, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -397,20 +413,25 @@ CREATE TABLE `product_variations` (
   `order` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `product_variation_type_id` int(10) UNSIGNED NOT NULL
+  `product_variation_type_id` int(10) UNSIGNED NOT NULL,
+  `pv_image_1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pv_image_2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pv_image_3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pv_image_4` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pv_image_5` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `product_variations`
 --
 
-INSERT INTO `product_variations` (`id`, `product_id`, `name`, `price`, `order`, `created_at`, `updated_at`, `product_variation_type_id`) VALUES
-(1, 1, 'Small', 1100, 1, NULL, NULL, 1),
-(2, 1, 'Small', 1000, 1, NULL, NULL, 2),
-(3, 1, 'Medium', 1400, 2, NULL, NULL, 1),
-(4, 1, 'Medium', 1120, 2, NULL, NULL, 2),
-(5, 1, 'Small', 1200, 1, NULL, NULL, 3),
-(6, 1, 'Medium', 1400, 2, NULL, NULL, 3);
+INSERT INTO `product_variations` (`id`, `product_id`, `name`, `price`, `order`, `created_at`, `updated_at`, `product_variation_type_id`, `pv_image_1`, `pv_image_2`, `pv_image_3`, `pv_image_4`, `pv_image_5`) VALUES
+(1, 1, 'Small', 1100, 1, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 'Small', 1000, 1, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL),
+(3, 1, 'Medium', 1400, 2, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(4, 1, 'Medium', 1120, 2, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL),
+(5, 1, 'Small', 1200, 1, NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL),
+(6, 1, 'Medium', 1400, 2, NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -496,6 +517,49 @@ CREATE TABLE `sellers` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shipping_methods`
+--
+
+CREATE TABLE `shipping_methods` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shipping_methods`
+--
+
+INSERT INTO `shipping_methods` (`id`, `name`, `price`, `created_at`, `updated_at`) VALUES
+(1, 'UPS', 1000, NULL, NULL),
+(2, 'Royal 1st', 5000, NULL, NULL),
+(3, 'Royal 2st', 500, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipping_method_state`
+--
+
+CREATE TABLE `shipping_method_state` (
+  `state_id` int(10) UNSIGNED NOT NULL,
+  `shipping_method_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shipping_method_state`
+--
+
+INSERT INTO `shipping_method_state` (`state_id`, `shipping_method_id`) VALUES
+(1, 2),
+(1, 3),
+(2, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `states`
 --
 
@@ -565,7 +629,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Anand', '123@gmail.com', NULL, '12345678', NULL, NULL, NULL),
 (2, 'Anandi', '111@gmail.com', NULL, '$2y$10$PBsdpXyCHVRf9sGnkgRGTem4fnx9mT57kOJ1O0yZfsFae9JRR5w1y', NULL, '2019-11-03 04:40:22', '2019-11-03 04:40:22'),
-(3, 'Anandi', '121@gmail.com', NULL, '$2y$10$IBjeamnd.C1LXFN0V2sb9e5ys2den2.lzfVEyq0mumR8gJeO.AhJu', NULL, '2019-11-03 04:41:39', '2019-11-03 04:41:39');
+(3, 'Anandi', '121@gmail.com', NULL, '$2y$10$IBjeamnd.C1LXFN0V2sb9e5ys2den2.lzfVEyq0mumR8gJeO.AhJu', NULL, '2019-11-03 04:41:39', '2019-11-03 04:41:39'),
+(4, 'Akash', 'akash@gmail.com', NULL, '$2y$10$KJ8h9snIhcuV85mCHy4KXu.rA5X0uSFxVZ99xEzcu8b8yzepkPQ8O', NULL, '2019-11-08 08:58:24', '2019-11-08 08:58:24');
 
 -- --------------------------------------------------------
 
@@ -720,6 +785,19 @@ ALTER TABLE `sellers`
   ADD UNIQUE KEY `sellers_email_unique` (`email`);
 
 --
+-- Indexes for table `shipping_methods`
+--
+ALTER TABLE `shipping_methods`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shipping_method_state`
+--
+ALTER TABLE `shipping_method_state`
+  ADD KEY `shipping_method_state_state_id_index` (`state_id`),
+  ADD KEY `shipping_method_state_shipping_method_id_index` (`shipping_method_id`);
+
+--
 -- Indexes for table `states`
 --
 ALTER TABLE `states`
@@ -777,7 +855,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -834,6 +912,12 @@ ALTER TABLE `sellers`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `shipping_methods`
+--
+ALTER TABLE `shipping_methods`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `states`
 --
 ALTER TABLE `states`
@@ -849,7 +933,7 @@ ALTER TABLE `stocks`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -901,6 +985,13 @@ ALTER TABLE `product_variations`
 ALTER TABLE `product_variation_order`
   ADD CONSTRAINT `product_variation_order_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   ADD CONSTRAINT `product_variation_order_product_variation_id_foreign` FOREIGN KEY (`product_variation_id`) REFERENCES `product_variations` (`id`);
+
+--
+-- Constraints for table `shipping_method_state`
+--
+ALTER TABLE `shipping_method_state`
+  ADD CONSTRAINT `shipping_method_state_shipping_method_id_foreign` FOREIGN KEY (`shipping_method_id`) REFERENCES `shipping_methods` (`id`),
+  ADD CONSTRAINT `shipping_method_state_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`);
 
 --
 -- Constraints for table `stocks`

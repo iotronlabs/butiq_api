@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'auth'], function () {
-    
+
         Route::post('/register', 'Api\AuthController@register');
         Route::post('/login',  'Api\AuthController@login');
         Route::get('/me',      'Api\AuthController@action');
@@ -55,7 +55,7 @@ Route::resource('cart', 'Api\Cart\CartController',[
     ]
 ]);
 
-    
+
 
 Route::post('categories/add','Api\Categories\CategoryController@create');
 
@@ -80,6 +80,8 @@ Route::group(
 
 Route::resource('addresses', 'Api\Addresses\AddressController');
 Route::resource('states', 'Api\State\StateController');
+Route::resource('orders', 'Api\Orders\OrderController');
+
 
 Route::get('addresses/{address}/shipping','Api\Addresses\AddressShippingController@action');
 

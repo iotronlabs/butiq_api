@@ -17,7 +17,7 @@ class Address extends Model
         'state_id',
         'default'
     ];
- 
+
     public static function boot(){
 
         parent::boot();
@@ -33,7 +33,7 @@ class Address extends Model
             }
 
         });
-     
+
     }
 
     public function setDefaultAttribute($value)
@@ -43,7 +43,7 @@ class Address extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class);
     }
 
     public function state()

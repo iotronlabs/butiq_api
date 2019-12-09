@@ -6,9 +6,9 @@ use App\User;
 use App\Cart\Money;
 use App\Models\ShippingMethod;
 
-class Cart 
-{       
-    protected $changed = false; 
+class Cart
+{
+    protected $changed = false;
     protected $user;
     protected $shipping;
     public function __construct(User $user)
@@ -16,6 +16,9 @@ class Cart
         $this->user = $user;
     }
 
+    public function products(){
+        return $this->user->cart;
+    }
     public function withShipping($shippingId)
     {
         $this->shipping = ShippingMethod::find($shippingId);
@@ -74,7 +77,7 @@ class Cart
     }
 
     public function sync()
-    {   
+    {
         return;
         $this->user->cart->each(function($product){
             $quantity = $product->minStock($product->pivot->quantity);

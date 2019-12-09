@@ -9,19 +9,20 @@ use App\Models\Stock;
 use App\Models\Traits\HasPrice;
 use App\Models\ProductVariationType;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Collections\ProductVariationCollection;
 
 class ProductVariation extends Model
-{   
-    protected $guarded = [];    
+{
+    protected $guarded = [];
     use  HasPrice;
     public function getPriceAttribute($value)
-    {   
+    {
 
         if($value === null)
         {
             return $this->product->price;
         }
-        
+
         return new Money($value);
     }
 
@@ -65,6 +66,12 @@ class ProductVariation extends Model
         public function inStock()
         {
             return $this->stockCount()>0;
+
+        }
+
+        public function newCollection(array $models =[]){
+
+            return new ProductVariationCollection($models);
 
         }
 }

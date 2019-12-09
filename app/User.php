@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Order;
 use App\Models\Address;
 use App\Models\ProductVariation;
 use Laravel\Passport\HasApiTokens;
@@ -40,11 +41,15 @@ class User extends Authenticatable
             return $this->belongsToMany(ProductVariation::class, 'cart_user')
             ->withPivot('quantity')
             ->withTimestamps();
-            
+
     }
 
     public function addresses()
     {
         return $this->hasMany(Address::class);
+    }
+    public function orders(){
+        return $this->hasMany(Order::class);
+
     }
 }

@@ -15,19 +15,19 @@ use App\Http\Requests\Cart\CartStoreRequest;
 use App\Http\Resources\Cart\CartResource;
 
 class CartController extends Controller
-{       
-   
+{
+
     public function __construct()
-    {   
-        $this->middleware(['auth:api']);  
+    {
+        $this->middleware(['auth:api']);
     }
 
     public function index(Request $request, Cart $cart)
-    {       
+    {
         $cart->sync();
         $request->user('api')->load(['cart.product', 'cart.product.variations.stock', 'cart.stock', 'cart.type'
 
-        
+
         ]);
 
         return (new CartResource($request->user('api')))
@@ -44,9 +44,9 @@ class CartController extends Controller
             'subtotal' => $cart->subtotal()->formatted(),
             'total' => $cart->withShipping($request->shipping_method_id)->total()->formatted(),
             'changed' => $cart->hasChanged(),
-        ]; 
+        ];
     }
-    
+
     public function store(CartStoreRequest $request, Cart $cart)
     {
         $cart->add($request->products);
@@ -64,6 +64,6 @@ class CartController extends Controller
         $cart->delete($productVariation->id);
     }
 
-    
-    
+
+
 }
