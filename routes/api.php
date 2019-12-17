@@ -72,7 +72,7 @@ Route::group(
     ],
     function () {
         Route::post('/addProducts', 'Api\Products\ProductController@addProduct');
-        Route::post('/variation/{id}', 'Api\Products\ProductController@addProductVariations');
+        Route::post('/addvariations/{id}', 'Api\Products\ProductController@addVariations');
     }
 
 );

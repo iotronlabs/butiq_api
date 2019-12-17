@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2019 at 01:16 PM
+-- Generation Time: Dec 17, 2019 at 01:39 PM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,7 +48,7 @@ CREATE TABLE `addresses` (
 INSERT INTO `addresses` (`id`, `user_id`, `state_id`, `name`, `address_1`, `city`, `postal_code`, `created_at`, `updated_at`, `default`) VALUES
 (1, 3, 2, 'ahksnk', 'kaghnln', 'jhhagmb ', 'nbmbmn', NULL, '2019-11-03 05:42:12', 0),
 (3, 3, 3, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:00:22', '2019-11-03 05:42:12', 0),
-(5, 2, 1, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:40:22', '2019-11-03 05:42:12', 0),
+(5, 2, 2, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:40:22', '2019-11-03 05:42:12', 0),
 (6, 3, 1, 'Akash', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:41:11', '2019-11-03 05:42:12', 0),
 (7, 3, 4, 'agmg', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:41:33', '2019-11-03 05:42:12', 0),
 (8, 3, 1, 'anb hb', 'nvhdn', 'vnjhgb,', 'ggbhb', '2019-11-03 05:42:12', '2019-11-03 05:42:12', 1);
@@ -90,8 +90,8 @@ CREATE TABLE `cart_user` (
 --
 
 INSERT INTO `cart_user` (`id`, `user_id`, `product_variation_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 2, NULL, NULL),
-(2, 1, 6, 10, NULL, NULL);
+(16, 2, 3, 1, '2019-12-17 07:00:32', '2019-12-17 07:00:32'),
+(17, 2, 4, 1, '2019-12-17 07:00:32', '2019-12-17 07:00:32');
 
 -- --------------------------------------------------------
 
@@ -203,7 +203,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2019_12_02_172452_create_shipping_methods_table', 11),
 (32, '2019_12_02_173629_create_state_shipping_method_table', 12),
 (33, '2019_12_02_185506_create_state_shipping_method_table', 13),
-(34, '2019_12_02_185635_create_shipping_method_state_table', 14);
+(34, '2019_12_02_185635_create_shipping_method_state_table', 14),
+(35, '2019_12_08_182401_add_address_and_shipping_to_order_table', 15),
+(36, '2019_12_08_184729_add_status_to_order_table', 16),
+(37, '2019_12_08_190656_add_subtotal_to_order_table', 17);
 
 -- --------------------------------------------------------
 
@@ -229,8 +232,14 @@ CREATE TABLE `oauth_access_tokens` (
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('18026470d7530429236382bc0acc7459586588871feeabc71961f214400ea89e0dbb3a4424121e83', 3, 1, 'authToken', '[]', 0, '2019-11-03 04:41:58', '2019-11-03 04:41:58', '2020-11-03 10:11:58'),
+('20b61b772037cb07f21c1376d913416a24d33fe05abb2cd0cdc317b958bb73183a222526680cfa20', 2, 1, 'authToken', '[]', 0, '2019-12-11 08:52:14', '2019-12-11 08:52:14', '2020-12-11 14:22:14'),
+('2e6254c6ad125eca80a80715bbd30a3b1b7144fe0a923de36a472e376e1028f974ccd6b5c7ae3654', 2, 1, 'authToken', '[]', 0, '2019-12-17 06:47:24', '2019-12-17 06:47:24', '2020-12-17 12:17:24'),
 ('320aea776222bb2a0c5177d18df049f784e54f31e2df0a226e50f8452b5e91eea33bee96fa82ec97', 2, 1, 'authToken', '[]', 0, '2019-12-06 23:51:21', '2019-12-06 23:51:21', '2020-12-07 05:21:21'),
+('392d73fcba3d54322418efabf1ce83dc07de513506be97fce69a0bd8881be9e962c91662fa4278ab', 2, 1, 'authToken', '[]', 0, '2019-12-11 09:56:00', '2019-12-11 09:56:00', '2020-12-11 15:26:00'),
+('3dfc08bec36bc93ca65bfcee2922d78e35a342ff5a1e8959af3e83b25945dc82c1de1fce722c44fa', 2, 1, 'authToken', '[]', 0, '2019-12-09 09:18:09', '2019-12-09 09:18:09', '2020-12-09 14:48:09'),
+('509126da78fd1ed53ec88fa8d3fcf2f3d4974cc1b0fc8b1495c6d23eb1f15a9ec883228a331881d1', 2, 1, 'authToken', '[]', 0, '2019-12-09 09:32:56', '2019-12-09 09:32:56', '2020-12-09 15:02:56'),
 ('7809ea3f98c8019ea1ef2dfac41409190a1728080522cf7a6aba9a3e7d7befe97599361fb2185d03', 4, 1, 'authToken', '[]', 0, '2019-11-08 08:58:24', '2019-11-08 08:58:24', '2020-11-08 14:28:24'),
+('9a587451d8723160781bb468369422109f54ab5b047e4beea008b9278a495aead382c1f04e64d153', 2, 1, 'authToken', '[]', 0, '2019-12-08 13:21:04', '2019-12-08 13:21:04', '2020-12-08 18:51:04'),
 ('9f41e381459736e6c1fce91e25c13312beaa12a7dd1ac8f66ca5ece151d8a9f22c1559552741e07b', 3, 1, 'authToken', '[]', 0, '2019-11-03 04:41:39', '2019-11-03 04:41:39', '2020-11-03 10:11:39'),
 ('bebdd795c45d55d19a9ed19ce5fa1415160f725fd16cf1ec3aed9486a9c7e5b59b9cd002ca5c26af', 3, 1, 'authToken', '[]', 0, '2019-12-03 09:12:38', '2019-12-03 09:12:38', '2020-12-03 14:42:38'),
 ('e787ff3007c7a7eccb846eb4db302b42e86b384124c36e3dc63ecfd19f988b0e3957041edf83bc9d', 4, 1, 'authToken', '[]', 0, '2019-11-08 09:50:25', '2019-11-08 09:50:25', '2020-11-08 15:20:25'),
@@ -321,15 +330,19 @@ CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `address_id` int(10) UNSIGNED NOT NULL,
+  `shipping_method_id` int(10) UNSIGNED NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, NULL);
+INSERT INTO `orders` (`id`, `user_id`, `created_at`, `updated_at`, `address_id`, `shipping_method_id`, `status`, `subtotal`) VALUES
+(31, 2, '2019-12-17 06:51:44', '2019-12-17 06:51:44', 5, 1, 'pending', 33040);
 
 -- --------------------------------------------------------
 
@@ -397,7 +410,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `slug`, `price`, `created_at`, `updated_at`, `description`, `popularity`, `seller_id`, `color`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`) VALUES
 (1, 'coffee', 'coffee', 1200, NULL, NULL, 'New Latest Shirt at lowest price', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Rounded Next T-Shirt', 'rounded-neck', 1900, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(2, 'Rounded Next T-Shirt', 'rounded-neck', 1900, NULL, NULL, 'vcagdjah bjabmjb mxag xahsavt ujxgsc ayGjsuy duv aj', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'hoody', 'hoody', 12321, '2019-12-11 11:32:04', '2019-12-11 11:32:04', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'hoody with paint', 'hoodypant', 12321, '2019-12-17 06:29:47', '2019-12-17 06:29:47', 'Hello, there anand', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -431,7 +446,13 @@ INSERT INTO `product_variations` (`id`, `product_id`, `name`, `price`, `order`, 
 (3, 1, 'Medium', 1400, 2, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL),
 (4, 1, 'Medium', 1120, 2, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL),
 (5, 1, 'Small', 1200, 1, NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL),
-(6, 1, 'Medium', 1400, 2, NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL);
+(6, 1, 'Medium', 1400, 2, NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL),
+(25, 9, 'Small', 8000, 1, '2019-12-17 06:37:37', '2019-12-17 06:37:37', 25, NULL, NULL, NULL, NULL, NULL),
+(26, 9, 'Medium', 8800, 2, '2019-12-17 06:37:37', '2019-12-17 06:37:37', 25, NULL, NULL, NULL, NULL, NULL),
+(27, 9, 'Large', 9000, 3, '2019-12-17 06:37:37', '2019-12-17 06:37:37', 25, NULL, NULL, NULL, NULL, NULL),
+(28, 9, 'Small', 9000, 1, '2019-12-17 06:37:37', '2019-12-17 06:37:37', 27, NULL, NULL, NULL, NULL, NULL),
+(29, 9, 'Medium', 9800, 2, '2019-12-17 06:37:37', '2019-12-17 06:37:37', 27, NULL, NULL, NULL, NULL, NULL),
+(30, 9, 'Large', 10000, 3, '2019-12-17 06:37:37', '2019-12-17 06:37:37', 27, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -447,16 +468,6 @@ CREATE TABLE `product_variation_order` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `product_variation_order`
---
-
-INSERT INTO `product_variation_order` (`id`, `order_id`, `product_variation_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 12, NULL, NULL),
-(2, 1, 3, 230, NULL, NULL),
-(3, 1, 2, 19, NULL, NULL),
-(4, 1, 1, 11, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -491,7 +502,9 @@ CREATE TABLE `product_variation_types` (
 INSERT INTO `product_variation_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Green', NULL, NULL),
 (2, 'Red', NULL, NULL),
-(3, 'Pink', NULL, NULL);
+(3, 'Pink', NULL, NULL),
+(25, 'DarkGreen', '2019-12-11 12:29:39', '2019-12-11 12:29:39'),
+(27, 'Indigo', '2019-12-11 12:42:59', '2019-12-11 12:42:59');
 
 -- --------------------------------------------------------
 
@@ -734,7 +747,9 @@ ALTER TABLE `oauth_refresh_tokens`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `orders_user_id_index` (`user_id`);
+  ADD KEY `orders_user_id_index` (`user_id`),
+  ADD KEY `orders_address_id_index` (`address_id`),
+  ADD KEY `orders_shipping_method_id_index` (`shipping_method_id`);
 
 --
 -- Indexes for table `o_t_p_verifies`
@@ -837,7 +852,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart_user`
 --
 ALTER TABLE `cart_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -855,7 +870,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -873,7 +888,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `o_t_p_verifies`
@@ -885,25 +900,25 @@ ALTER TABLE `o_t_p_verifies`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product_variations`
 --
 ALTER TABLE `product_variations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `product_variation_order`
 --
 ALTER TABLE `product_variation_order`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `product_variation_types`
 --
 ALTER TABLE `product_variation_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `sellers`
@@ -970,6 +985,8 @@ ALTER TABLE `category_product`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_address_id_foreign` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`),
+  ADD CONSTRAINT `orders_shipping_method_id_foreign` FOREIGN KEY (`shipping_method_id`) REFERENCES `shipping_methods` (`id`),
   ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
