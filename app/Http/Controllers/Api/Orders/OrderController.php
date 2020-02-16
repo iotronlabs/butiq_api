@@ -22,6 +22,7 @@ class OrderController extends Controller
     public function store(OrderStoreRequest $request, Cart $cart)
     {
         $cart->sync();
+
         if($cart->isEmpty()){
          return response(null, 400);
         }
